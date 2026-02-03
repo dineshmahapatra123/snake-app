@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="header">
+        <div>
+          <h1>Snake</h1>
+          <p class="sub">Classic grid snake. Eat, grow, survive.</p>
+        </div>
+        <div class="score">
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+      </header>
+
+      <section class="board">
+        <canvas id="game" width="400" height="400" aria-label="Snake game board"></canvas>
+        <div id="overlay" class="overlay" aria-live="polite"></div>
+      </section>
+
+      <section class="controls">
+        <div class="keys">
+          <span>Move:</span>
+          <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+          <span>or</span>
+          <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd>
+        </div>
+        <div class="keys">
+          <span>Pause:</span> <kbd>Space</kbd>
+          <span>Restart:</span> <kbd>R</kbd>
+        </div>
+        <div class="buttons">
+          <button id="pauseBtn" type="button">Pause</button>
+          <button id="restartBtn" type="button">Restart</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
