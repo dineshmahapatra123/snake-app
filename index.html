@@ -19,27 +19,29 @@
         </div>
       </header>
 
-      <section class="board">
-        <canvas id="game" width="400" height="400" aria-label="Snake game board"></canvas>
-        <div id="overlay" class="overlay" aria-live="polite"></div>
-      </section>
+      <div class="main">
+        <section class="board">
+          <canvas id="game" width="400" height="400" aria-label="Snake game board"></canvas>
+          <div id="overlay" class="overlay" aria-live="polite"></div>
+        </section>
 
-      <section class="controls">
-        <div class="keys">
-          <span>Move:</span>
-          <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
-          <span>or</span>
-          <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd>
-        </div>
-        <div class="keys">
-          <span>Pause:</span> <kbd>Space</kbd>
-          <span>Restart:</span> <kbd>R</kbd>
-        </div>
-        <div class="buttons">
-          <button id="pauseBtn" type="button">Pause</button>
-          <button id="restartBtn" type="button">Restart</button>
-        </div>
-      </section>
+        <section class="controls">
+          <div class="keys">
+            <span>Move:</span>
+            <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+            <span>or</span>
+            <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd>
+          </div>
+          <div class="keys">
+            <span>Pause:</span> <kbd>Space</kbd>
+            <span>Restart:</span> <kbd>R</kbd>
+          </div>
+          <div class="buttons">
+            <button id="pauseBtn" type="button">Pause</button>
+            <button id="restartBtn" type="button">Restart</button>
+          </div>
+        </section>
+      </div>
     </main>
 
     <script type="module" src="src/main.js"></script>
