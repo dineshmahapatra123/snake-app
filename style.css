@@ -1,14 +1,14 @@
 :root {
-  --bg: #f4efe5;
-  --panel: #101418;
-  --panel-soft: #1a212a;
-  --grid: #252f3b;
-  --snake: #5de28c;
-  --snake-head: #d5ff9c;
-  --food: #ff7a59;
-  --text: #f2f2ef;
-  --muted: #b8c0cc;
-  --ink: #1d2026;
+  --bg: #e8f4e5;
+  --panel: #1a3a2a;
+  --panel-soft: #2d5a45;
+  --grid: #3d6e58;
+  --snake: #4ade80;
+  --snake-head: #84e6a1;
+  --food: #dc2626;
+  --text: #f5f5f4;
+  --muted: #a1b896;
+  --ink: #1a3a2a;
 }
 
 * {
@@ -18,7 +18,7 @@
 body {
   margin: 0;
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
-  background: radial-gradient(1000px 700px at 15% 10%, #fff7e8, #f1e7d8);
+  background: radial-gradient(1000px 700px at 15% 10%, #f0f8ed, #dcebd5);
   color: var(--ink);
   min-height: 100vh;
   display: grid;
@@ -36,28 +36,28 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  background: #ffffff;
+  background: #f5f5f4;
   border-radius: 16px;
   padding: 16px 18px;
-  box-shadow: 0 14px 30px rgba(23, 28, 34, 0.12);
+  box-shadow: 0 14px 30px rgba(26, 58, 42, 0.15);
 }
 
 h1 {
   margin: 0 0 4px;
   font-size: 30px;
   letter-spacing: 0.3px;
-  color: #121418;
+  color: #1a3a2a;
 }
 
 .sub {
   margin: 0;
-  color: #5f6a77;
+  color: #558555;
   font-size: 14px;
 }
 
 .score {
   background: var(--panel);
-  border: 1px solid #222c36;
+  border: 1px solid #2d5a45;
   border-radius: 12px;
   padding: 12px 16px;
   text-align: right;
@@ -91,11 +91,11 @@ h1 {
 
 .board {
   background: var(--panel);
-  border: 1px solid #222c36;
+  border: 1px solid #2d5a45;
   border-radius: 18px;
   padding: 18px;
   position: relative;
-  box-shadow: 0 18px 40px rgba(18, 22, 28, 0.35);
+  box-shadow: 0 18px 40px rgba(26, 58, 42, 0.35);
 }
 
 canvas {
@@ -141,7 +141,7 @@ canvas {
 
 .controls {
   background: var(--panel-soft);
-  border: 1px solid #24303b;
+  border: 1px solid #3d5a4a;
   border-radius: 16px;
   padding: 16px;
   display: grid;
@@ -159,8 +159,8 @@ canvas {
 }
 
 kbd {
-  background: #222d39;
-  border: 1px solid #2f3d4c;
+  background: #2d5a45;
+  border: 1px solid #3d6e58;
   border-radius: 7px;
   padding: 4px 7px;
   font-size: 12px;
@@ -174,9 +174,9 @@ kbd {
 }
 
 button {
-  background: #f3f1ea;
-  border: 1px solid #d7d0c3;
-  color: #1c2026;
+  background: #84e6a1;
+  border: 1px solid #4ade80;
+  color: #1a3a2a;
   padding: 10px 14px;
   border-radius: 10px;
   cursor: pointer;
@@ -186,7 +186,7 @@ button {
 }
 
 button:hover {
-  border-color: #bfb7a7;
+  border-color: #22c55e;
 }
 
 @media (max-width: 540px) {
