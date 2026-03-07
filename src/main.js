@@ -3,9 +3,12 @@ import { createInitialState, DIRECTIONS, GRID_SIZE, step } from "./logic.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const scoreEl = document.getElementById("score");
+const highScoreEl = document.getElementById("highscore");
 const overlay = document.getElementById("overlay");
 const pauseBtn = document.getElementById("pauseBtn");
 const restartBtn = document.getElementById("restartBtn");
+
+const HIGH_SCORE_KEY = "snakeHighScore";
 
 const cellSize = canvas.width / GRID_SIZE;
 const TICK_MS = 140;
@@ -14,6 +17,16 @@ let state = createInitialState();
 let pendingDir = state.pendingDir;
 let paused = false;
 let lastTick = 0;
+
+let highScore = 0;
+// load persisted high score
+try {
+  const stored = parseInt(localStorage.getItem(HIGH_SCORE_KEY), 10);
+  if (!Number.isNaN(stored)) highScore = stored;
+} catch (e) {
+  // ignore storage errors (e.g. privacy mode)
+}
+updateHighScoreDisplay();
 
 function drawCell(point, color) {
   ctx.fillStyle = color;
@@ -32,6 +45,11 @@ function render() {
   }
 
   scoreEl.textContent = state.score.toString();
+  if (state.score > highScore) {
+    highScore = state.score;
+    persistHighScore();
+  }
+  updateHighScoreDisplay();
 
   if (state.gameOver) {
     overlay.textContent = "Game Over — Press R to restart";
@@ -58,6 +76,18 @@ function gameLoop(timestamp) {
 function setDirection(dir) {
   if (!dir) return;
   pendingDir = dir;
+}
+
+function updateHighScoreDisplay() {
+  if (highScoreEl) highScoreEl.textContent = highScore.toString();
+}
+
+function persistHighScore() {
+  try {
+    localStorage.setItem(HIGH_SCORE_KEY, highScore.toString());
+  } catch (e) {
+    // ignore
+  }
 }
 
 function handleKey(event) {
@@ -109,6 +139,36 @@ function restart() {
 }
 
 document.addEventListener("keydown", handleKey);
+
+// touch/swipe support for mobile devices
+let touchStart = null;
+canvas.addEventListener("touchstart", (e) => {
+  if (e.touches.length === 1) {
+    const t = e.touches[0];
+    touchStart = { x: t.clientX, y: t.clientY };
+  }
+});
+
+canvas.addEventListener("touchend", (e) => {
+  if (!touchStart) return;
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touchStart.x;
+  const dy = t.clientY - touchStart.y;
+  const absX = Math.abs(dx);
+  const absY = Math.abs(dy);
+  // only treat as swipe if moved a bit
+  const threshold = 30;
+  if (absX < threshold && absY < threshold) {
+    touchStart = null;
+    return;
+  }
+  if (absX > absY) {
+    setDirection(dx > 0 ? DIRECTIONS.right : DIRECTIONS.left);
+  } else {
+    setDirection(dy > 0 ? DIRECTIONS.down : DIRECTIONS.up);
+  }
+  touchStart = null;
+});
 
 pauseBtn.addEventListener("click", () => togglePause());
 restartBtn.addEventListener("click", () => restart());

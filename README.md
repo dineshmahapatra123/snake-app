@@ -38,10 +38,25 @@ You only need a web browser to run this game. To serve it locally for the best e
 
 ## 🕹️ How to Play
 
-- **Move**: Use `Arrow Keys` or `W`, `A`, `S`, `D`.
+- **Move**: Use `Arrow Keys` or `W`, `A`, `S`, `D` or swipe on touch devices.
 - **Pause/Resume**: Press `Space` or use the on-screen button.
 - **Restart**: Press `R` or use the on-screen button.
 - **Objective**: Eat the red food to grow and increase your score. Avoid hitting the walls or your own tail!
+
+### 🏆 High Score
+The header now shows your all-time best score, which is stored locally in the browser using `localStorage`.
+
+## 🧪 Running Tests
+A basic Jest test suite is included to verify the core game logic.
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the tests:
+   ```bash
+   npm test
+   ```
 
 ## 🛠️ Technology Stack
 

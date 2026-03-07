@@ -1,0 +1,9 @@
+{
+  "name": "snake-app",
+  "version": "1.0.0",
+  "description": "Classic grid snake game",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  }
+}

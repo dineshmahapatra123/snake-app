@@ -65,6 +65,11 @@ h1 {
   color: var(--text);
 }
 
+/* additional rule so the two score boxes sit nicely */
+.header .score + .score {
+  margin-left: 16px;
+}
+
 .score span {
   display: block;
   color: var(--muted);
